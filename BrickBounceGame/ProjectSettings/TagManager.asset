@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - plataform
   - Block
+  - Ball
   layers:
   - Default
   - TransparentFX
