@@ -20,9 +20,13 @@ public class BouncyControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("plataform"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             rb.gravityScale = 0f;
+        } 
+        else if  (collision.gameObject.CompareTag("Block"))
+        {
+            rb.gravityScale = 0.8f;
         }
     }
 }
