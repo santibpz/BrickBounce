@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
 {
 
     [SerializeField] TMP_Text scoreText;
-    int score;
+    public int score;
     // Start is called before the first frame update
     void Start()
     {

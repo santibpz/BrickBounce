@@ -8,6 +8,8 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] HealthManager healthManager;
     [SerializeField] PositionPlayer positioner;
     [SerializeField] InstantiateBall instantiator;
+    [SerializeField] GameOverScreen gameOverScreen;
+    [SerializeField] Score score;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.CompareTag("Ball"))
@@ -22,6 +24,7 @@ public class HealthHandler : MonoBehaviour
             else
             {
                 // game over
+                gameOverScreen.Setup(score.score);
             }
             
         }
