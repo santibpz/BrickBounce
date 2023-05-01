@@ -6,11 +6,10 @@ using UnityEngine;
 public class InstantiateBall : MonoBehaviour
 {
     [SerializeField] GameObject ball;
-    public void CreateBall()
+    public void RepositionBall()
     {
-        Vector3 initialPosition = new Vector3(0f, -1.42f, 0f);
-        // Create a copy of the ball prefab
-        Instantiate(ball, initialPosition, Quaternion.identity); // quaternion for rotation
+        ball.transform.position = new Vector3(0f, -1.42f, 0f);
+      
 
     }
 }

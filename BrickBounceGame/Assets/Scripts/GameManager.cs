@@ -1,9 +1,9 @@
-// script for checking and performing actions when gameObjects fall off the camera view.
+// game manager script
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthHandler : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     [SerializeField] HealthManager healthManager;
     [SerializeField] PositionPlayer positioner;
@@ -12,13 +12,13 @@ public class HealthHandler : MonoBehaviour
     [SerializeField] Score score;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.CompareTag("Ball"))
         {
             healthManager.health--;
-            if(healthManager.health > 0)
+            if (healthManager.health > 0)
             {
                 // instantiate new ball in original position and reposition player
-                instantiator.CreateBall();
+                instantiator.RepositionBall();
                 positioner.repositionPlayer();
             }
             else
@@ -26,7 +26,7 @@ public class HealthHandler : MonoBehaviour
                 // game over
                 gameOverScreen.Setup(score.score);
             }
-            
+
         }
     }
 }
