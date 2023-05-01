@@ -6,11 +6,13 @@ using UnityEngine;
 
 public class BouncyControl : MonoBehaviour
 {
+    AudioSource audioSource;
     private Rigidbody2D rb;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -20,6 +22,10 @@ public class BouncyControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject)
+        {
+            GetComponent<AudioSource>().Play();
+        }
         if (collision.gameObject.CompareTag("Player"))
         {
             rb.gravityScale = 0f;
