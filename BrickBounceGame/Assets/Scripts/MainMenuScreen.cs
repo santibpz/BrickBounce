@@ -7,6 +7,10 @@ public class MainMenuScreen : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("SampleScene");
+        if(Time.timeScale==0)
+        {
+            Time.timeScale = 1;
+        }
+        SceneManager.LoadScene("Game");
     }
 }
