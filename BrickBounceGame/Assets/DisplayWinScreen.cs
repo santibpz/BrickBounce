@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class DisplayWinScreen : MonoBehaviour
 {
-    public void Setup()
+    [SerializeField] TMP_Text scoreText;
+    public void Setup(int finalScore)
     {
+        Time.timeScale = 0;
         gameObject.SetActive(true);
+        scoreText.text = "Final Score is " + finalScore;
 
     }
 
