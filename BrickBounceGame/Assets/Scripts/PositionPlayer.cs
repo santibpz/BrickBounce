@@ -6,9 +6,12 @@ using UnityEngine;
 public class PositionPlayer : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    
+
+
     public void repositionPlayer()
     {
-        player.transform.position = new Vector3(0, -4.45f, 0);
+        player.transform.position = new Vector3(0, -3.89f, 0);
+        
+        
     }
 }

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
             if (healthManager.health > 0)
             {
                 // instantiate new ball in original position and reposition player
-                instantiator.RepositionBall();
+                instantiator.ResetBall();
                 positioner.repositionPlayer();
             }
             else

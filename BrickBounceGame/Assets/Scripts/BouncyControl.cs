@@ -7,32 +7,32 @@ using UnityEngine;
 public class BouncyControl : MonoBehaviour
 {
     AudioSource audioSource;
-    private Rigidbody2D rb;
-
+    public Rigidbody2D rb;
+    public float speed;
+    Vector2 force;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
-    }
-
-    void Update()
-    {
-
+        Invoke("setRandomTrajectory", 2);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject)
         {
-            GetComponent<AudioSource>().Play();
-        }
-        if (collision.gameObject.CompareTag("Player"))
+            audioSource.Play();
+            
+        } else if(collision.gameObject.CompareTag("Block"))
         {
-            rb.gravityScale = 0f;
-        } 
-        else if  (collision.gameObject.CompareTag("Block"))
-        {
-            rb.gravityScale = 0.8f;
+            setRandomTrajectory();
         }
+        
+    }
+    public void setRandomTrajectory()
+    {
+        force.x = Random.Range(-0.5f, 0.5f);
+        force.y = -1f;
+        rb.AddForce(force * speed);
     }
 }
